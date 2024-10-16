@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 40px;
+            overflow: hidden;
+            white-space: nowrap; /* Prevent line breaks */
+        }
+        .greeting {
+            display: inline-block;
+            animation: scroll 59s linear infinite; /* Control scroll speed */
+        }
+        @keyframes scroll {
+            0% {
+                transform: translateX(70%);
+            }
+            100% {
+                transform: translateX(-80%);
+            }
+        }
+        .letter {
+            display: inline-block;
+            transition: transform 0.1s;
+        }
+        .spacer {
+            width: 100px; 
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="greeting" id="greeting">❤️ You made it! Congratulations!   Greetings to Dysposin MuffinHop Firesong Solarius LaurieWired Vorsa Metropolia TheAlberts ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+
+    <script>
+        const greetingElement = document.getElementById('greeting');
+        const letters = greetingElement.textContent.split('');
+        greetingElement.innerHTML = ''; // Clear original text
+
+        letters.forEach(letter => {
+            if (letter === ' ') {
+                const spacer = document.createElement('span');
+                spacer.classList.add('spacer');
+                greetingElement.appendChild(spacer);
+            } else {
+                const span = document.createElement('span');
+                span.classList.add('letter');
+                span.textContent = letter;
+                greetingElement.appendChild(span);
+            }
+        });
+
+        const letterElements = document.querySelectorAll('.letter');
+        let time = 0;
+
+        function animate() {
+            time += 0.05; // Control speed of wave
+            letterElements.forEach((letter, index) => {
+                const amplitude = 100; // Maximum displacement
+                const wave = Math.sin(time + index) * amplitude;
+                letter.style.transform = `translateY(${wave}px)`;
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

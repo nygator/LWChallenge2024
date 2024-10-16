@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demoscene Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="box" id="captcha-container">
+    <h2>Demoscene Challenge</h2>
+    <button class="captcha-btn" id="captcha-btn">Start Challenge</button>
+</div>
+
+<div id="message-container" class="message-container" style="display: none;">
+    <span id="message-text">Credentials accepted</span>
+</div>
+
+<button id="proceed-btn" class="proceed-btn" disabled>Proceed</button>
+
+<div id="myModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <button class="close-btn" id="close-btn">Close</button>
+        <h3 id="captcha-question">Choose a Demoscene Effect</h3>
+        <div class="box-grid" id="box-grid">
+            <div class="grid-box" data-index="0">
+                <canvas id="canvas1"></canvas>
+            </div>
+            <div class="grid-box" data-index="1">
+                <canvas id="canvas2"></canvas>
+            </div>
+            <div class="grid-box" data-index="2">
+                <canvas id="canvas3"></canvas>
+            </div>
+            <div class="grid-box" data-index="3">
+                <canvas id="canvas4"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="shaders.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

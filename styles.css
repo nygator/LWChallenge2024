@@ -1,0 +1,141 @@
+/* Styles for the layout */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #f4f4f4;
+}
+
+.box {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.captcha-btn,
+.proceed-btn,
+.close-btn {
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.proceed-btn[disabled] {
+	background-color: #cccccc;
+	cursor: not-allowed;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	width: 80%;
+	max-width: 700px;
+}
+
+.box-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.grid-box, .text-box {
+	position: relative;
+	width: 100%;
+	padding-top: 100%;
+	background-color: #000000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.grid-box canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.grid-box img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+.message-container {
+	opacity: 0;
+	transition: opacity 1s ease-in-out; /* Adjust timing as needed */
+}
+
+.message-container.show {
+	display: block;
+	opacity: 1;
+}
+
+.message-container.hide {
+	opacity: 0;
+}
+
+.circular-text {
+	position: absolute;
+	width: 90%;  /* Adjust size to fit inside grid-box */
+	height: 90%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(-90deg); /* Center and rotate */
+	border-radius: 50%;
+}
+
+.circular-text span {
+	position: absolute;
+	transform-origin: 50% 50%;
+	font-size: 12px;  /* Smaller font to fit */
+}
+
+@keyframes wave {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	25% {
+		transform: translateY(-10px); /* Move up */
+	}
+	50% {
+		transform: translateY(10px); /* Move down */
+	}
+	75% {
+		transform: translateY(-10px); /* Move up */
+	}
+}
+
+/* Animation class */
+.animate-wave {
+	animation: wave 1s infinite; /* Apply the animation */
+}
